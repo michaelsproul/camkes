@@ -13,8 +13,11 @@
 #include <camkes.h>
 #include <string.h>
 
+void hello_world(void);
+
 void kmi_request_signature(const char * message) {
     printf("KeyMaster: received %s\n", message);
+    hello_world();
     if (auth_request_confirmation(message)) {
         user_provide_signature(message, "abcdef");
     } else {
